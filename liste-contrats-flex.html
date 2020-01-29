@@ -1,4 +1,182 @@
-<style>
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Liste des contrats</title>
+	<style>
+	
+	///////// COLORATION ///////////
 
+	#header
+	{
+		position:relative;
+		border:solid 1px blue;
+		background-color:white;
+	}
+	#header h1 span
+	{
+		color:#eeeeee;
+	}
+	#menu
+	{
+		background-color:#780e0e;
+		padding:1em;
+	}
+	#menu *
+	{
+		color:#eeeeee;
+		text-decoration:none;
+		font-weight:bold;
+	}	
+	h2
+	{
+		color:#eeeeee;
+	}
+	#liste-contrats .contrat 
+	{
+	}
+	
+	#liste-contrats .contrat .contrat-description
+	{
+	}
+	
+	body
+	{
+		background-color:#333333;
+	}
+	
+	#liste-contrats
+	{
+		background-color:#777777;
+	}
+	
+	///////// POSITIONNEMENT ///////////
 
-</style>
+	header
+	{
+		width:100%;
+		height:20em;
+	}	
+	
+	#contenu
+	{
+		width:100%;
+	}	
+	
+	#liste-contrats
+	{
+		position:relative;
+		width:100%;
+		display:flex;
+		flex-wrap: wrap;
+		/*flex-direction: column;*/
+		padding-bottom:2em;		
+	}
+	
+	#liste-contrats .contrat 
+	{
+		position:relative;
+		margin:2em;
+		margin-bottom:0;
+		width : 40em; /*50 - 10*/
+		height:7em; /* 10 em de hauteur - padding de 1.5 + 1.5*/
+		background-color:#b4edc1;
+		border-radius:2em;
+		padding-left:10em;
+		padding-top:1.5em;
+		padding-bottom:1.5em;
+	}
+	
+	#liste-contrats .contrat *
+	{
+		position:absolute;
+		width: 38.5em;/*50 - 10 - 1.5*/
+		/*background-color:blue;*/
+	}
+	
+	#liste-contrats .contrat .contrat-donneur-ordre
+	{
+		/* top:1.5em; non necessaire car paffing de 1.5*/
+		left:1.5em;
+		width:7em;
+		height:7em;
+		background-color:#e4e6e7;
+		/*background-image: url("decoration/profil-defaut.png");*/
+	}
+	#liste-contrats .contrat .contrat-donneur-ordre img
+	{
+		width:7em;
+		height:7em;	
+	}
+	
+	#liste-contrats .contrat h4
+	{
+		top:0em;
+	}
+	
+	#liste-contrats .contrat .contrat-description
+	{
+		top:4em;
+	}
+	
+	#liste-contrats .contrat .contrat-technologie
+	{
+		top:3em;
+	}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<h1><span>Contrat A Tout</span></h1>
+		<nav>
+			<div id="menu">
+				<a href="#">Accueil</a> |
+				<a href="#">Contrats</a> |
+				<a href="#">Contacts</a>
+			</div>
+		</nav>
+	</div>
+	
+	<section id="contenu">
+		<header><h2>Contrats offerts</h2></header>
+	
+		<div id="liste-contrats">
+		
+			<div class="contrat">
+			
+				<h4>Embellissement d'un site XOOPS</h4>
+				<div class="contrat-donneur-ordre"><img src="illustration/profil-defaut.png"/></div>
+				<p class="contrat-description">Le site de rencontre mentor-mentoré doit être redécoré pour améliorer 
+				le taux d'inscription au projet pédagogique.</p>
+				<span class="contrat-technologie">PHP, CSS, XOOPS, AJAX</span>
+				<span class="date"></span>
+			</div>
+		
+			<div class="contrat">
+			
+				<h4>Installation d'un site WordPress</h4>
+				<div class="contrat-donneur-ordre"><img src="illustration/profil-defaut.png"/></div>
+				<p class="contrat-description">Le site de rencontre mentor-mentoré doit être redécoré pour améliorer 
+				le taux d'inscription au projet pédagogique.</p>
+				<span class="contrat-technologie">PHP, CSS, XOOPS, AJAX</span>
+				<span class="date"></span>
+			</div>
+		
+			<div class="contrat">
+			
+				<h4>Programmation d'une APP sur les océans</h4>
+				<div class="contrat-donneur-ordre"><img src="illustration/profil-defaut.png"/></div>
+				<p class="contrat-description">Le site de rencontre mentor-mentoré doit être redécoré pour améliorer 
+				le taux d'inscription au projet pédagogique.</p>
+				<span class="contrat-technologie">PHP, CSS, XOOPS, AJAX</span>
+				<span class="date"></span>
+			</div>
+		
+		</div>
+	
+	
+	</section>
+	
+	<footer><span id="signature"></span></footer>
+</body>
+</html>
