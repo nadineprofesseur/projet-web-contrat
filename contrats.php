@@ -1,3 +1,21 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$usager = 'root';
+$motdepasse = '';
+$hote = 'localhost';
+$base = 'contrat-a-tout';
+$dsn = 'mysql:dbname='.$base.';host=' . $hote;
+$basededonnees = new PDO($dsn, $usager, $motdepasse);
+
+
+$SQL_LISTE_CONTRATS = "SELECT * FROM contrat";
+$demandeListeContrats = $basededonnees->prepare($SQL_LISTE_CONTRATS);
+$demandeListeContrats->execute();
+$contrats = $demandeListeContrats->fetchAll();
+//print_r($listeContrats);
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -23,8 +41,11 @@
 	
 		<div id="liste-contrats">
 		
-			<div class="contrat">
-			
+		<?php
+		foreach($contrats as $contrat)
+		{
+		?>
+			<div class="contrat">			
 				<h4>Embellissement d'un site XOOPS</h4>
 				<div class="contrat-client"><img src="illustration/profil-defaut.png"/></div>
 				<p class="contrat-description">Le site de rencontre mentor-mentoré doit être redécoré pour améliorer 
@@ -32,27 +53,10 @@
 				<span class="contrat-technologie">PHP, CSS, XOOPS, AJAX</span>
 				<span class="contrat-debut"></span>
 			</div>
-		
-			<div class="contrat">
-			
-				<h4>Installation d'un site WordPress</h4>
-				<div class="contrat-client"><img src="illustration/profil-defaut.png"/></div>
-				<p class="contrat-description">Le site de rencontre mentor-mentoré doit être redécoré pour améliorer 
-				le taux d'inscription au projet pédagogique.</p>
-				<span class="contrat-technologie">PHP, CSS, XOOPS, AJAX</span>
-				<span class="contrat-debut"></span>
-			</div>
-		
-			<div class="contrat">
-			
-				<h4>Programmation d'une APP sur les océans</h4>
-				<div class="contrat-client"><img src="illustration/profil-defaut.png"/></div>
-				<p class="contrat-description">Le site de rencontre mentor-mentoré doit être redécoré pour améliorer 
-				le taux d'inscription au projet pédagogique.</p>
-				<span class="contrat-technologie">PHP, CSS, XOOPS, AJAX</span>
-				<span class="contrat-debut"></span>
-			</div>
-		
+		<?php
+		}
+		?>
+				
 		</div>
 	
 	

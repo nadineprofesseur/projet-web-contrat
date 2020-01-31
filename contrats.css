@@ -98,7 +98,7 @@
 		/*background-color:blue;*/
 	}
 	
-	#liste-contrats .contrat .contrat-donneur-ordre
+	#liste-contrats .contrat .contrat-client
 	{
 		/* top:1.5em; non necessaire car paffing de 1.5*/
 		left:1.5em;
@@ -107,7 +107,7 @@
 		background-color:#e4e6e7;
 		/*background-image: url("decoration/profil-defaut.png");*/
 	}
-	#liste-contrats .contrat .contrat-donneur-ordre img
+	#liste-contrats .contrat .contrat-client img
 	{
 		width:7em;
 		height:7em;	
