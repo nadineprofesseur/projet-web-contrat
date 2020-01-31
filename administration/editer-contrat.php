@@ -45,7 +45,7 @@ function formater($texte)
 	<section id="contenu">
 		<header><h2>&Eacute;diter le contrat <?=formater($contrat->titre)?></h2></header>
 		
-		<form action="action/ajouter-contrat.php" method="post">
+		<form action="action/editer-contrat.php?contrat=<?=formater($contrat->id)?>" method="post">
 		
 			<div class="champs">
 				<label for="titre">Titre</label>

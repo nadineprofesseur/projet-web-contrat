@@ -17,6 +17,7 @@
 	$dsn = 'mysql:dbname='.$base.';host=' . $hote;
 	$basededonnees = new PDO($dsn, $usager, $motdepasse);
 
+	$titre = addslashes($titre); $client = addslashes($client); $description = addslashes($description); $technologie = addslashes($technologie); $debut = addslashes($debut);	// retirer avec bindparam
 	$SQL_AJOUTER_CONTRAT = "INSERT into contrat(titre, client, description, technologie, debut) VALUES('$titre', '$client', '$description', '$technologie', '$debut')";
 	//echo $SQL_AJOUTER_CONTRAT;
 	$demandeAjoutContrat = $basededonnees->prepare($SQL_AJOUTER_CONTRAT);
