@@ -49,18 +49,20 @@ function formater($texte)
 	<section id="contenu">
 		<header><h2>Contrats offerts</h2></header>
 	
+		<div>
+			<a href="ajouter-contrat.html">Ajouter un contrat</a>
+		</div>
+
 		<div id="liste-contrats">
-		
+				
 		<?php
 		foreach($contrats as $contrat)
 		{
 		?>
 			<div class="contrat">			
-				<h4><a href="contrat.php?contrat=<?=$contrat->id?>"><?=formater($contrat->titre)?></a></h4>
-				<div class="contrat-client"><img src="illustration/profil-defaut.png"/></div>
-				<p class="contrat-description"><?=formater($contrat->description)?></p>
-				<span class="contrat-technologie"><?=formater($contrat->technologie)?></span>
-				<!--span class="contrat-debut"><?=formater($contrat->debut)?></span-->
+				<h4><a href="contrat.php?contrat=<?=$contrat->id?>"><?=formater($contrat->titre)?></a> 
+				<a class="action" href="editer-contrat.php?contrat=<?=$contrat->id?>">&Eacute;diter</a> 
+				<a class="action" href="effacer-contrat.php?contrat=<?=$contrat->id?>">Effacer</a></h4>
 			</div>
 		<?php
 		}
