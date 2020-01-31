@@ -14,7 +14,7 @@ $SQL_LISTE_CONTRATS = "SELECT * FROM contrat";
 $demandeContrats = $basededonnees->prepare($SQL_LISTE_CONTRATS);
 $demandeContrats->execute();
 $contrats = $demandeContrats->fetchAll(PDO::FETCH_OBJ);
-//print_r($listeContrats);
+print_r($contrats);
 
 function formater($texte)
 {
@@ -56,7 +56,7 @@ function formater($texte)
 		{
 		?>
 			<div class="contrat">			
-				<h4><?=formater($contrat->titre)?></h4>
+				<h4><a href="contrat.php?contrat=<?=$contrat->id?>"><?=formater($contrat->titre)?></a></h4>
 				<div class="contrat-client"><img src="illustration/profil-defaut.png"/></div>
 				<p class="contrat-description"><?=formater($contrat->description)?></p>
 				<span class="contrat-technologie"><?=formater($contrat->technologie)?></span>
