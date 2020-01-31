@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -18,7 +18,10 @@ $contrats = $demandeContrats->fetchAll(PDO::FETCH_OBJ);
 
 function formater($texte)
 {
-	
+	$texte = html_entity_decode($texte,ENT_COMPAT,'UTF-8');
+	$texte = htmlentities($texte,ENT_COMPAT,'ISO-8859-1');
+	return $texte;
+
 }
 
 ?>
@@ -53,11 +56,11 @@ function formater($texte)
 		{
 		?>
 			<div class="contrat">			
-				<h4><?=htmlentities($contrat->titre)?></h4>
+				<h4><?=formater($contrat->titre)?></h4>
 				<div class="contrat-client"><img src="illustration/profil-defaut.png"/></div>
-				<p class="contrat-description"><?=htmlentities($contrat->description)?></p>
-				<span class="contrat-technologie"><?=htmlentities($contrat->technologie)?></span>
-				<span class="contrat-debut"><?=htmlentities($contrat->debut)?></span>
+				<p class="contrat-description"><?=formater($contrat->description)?></p>
+				<span class="contrat-technologie"><?=formater($contrat->technologie)?></span>
+				<!--span class="contrat-debut"><?=formater($contrat->debut)?></span-->
 			</div>
 		<?php
 		}

@@ -127,3 +127,7 @@
 	{
 		top:3em;
 	}
+	#liste-contrats .contrat .contrat-debut
+	{
+		display:none;
+	}
