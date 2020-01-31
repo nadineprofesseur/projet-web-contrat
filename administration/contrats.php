@@ -31,7 +31,8 @@ function formater($texte)
 	<meta charset="utf-8">
 	<title>Liste des contrats</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="contrats.css">	<style>
+	<link rel="stylesheet" type="text/css" href="contrats.css">	
+	<style>
 	</style>
 </head>
 <body>
@@ -60,7 +61,7 @@ function formater($texte)
 		{
 		?>
 			<div class="contrat">			
-				<h4><a href="contrat.php?contrat=<?=$contrat->id?>"><?=formater($contrat->titre)?></a> 
+				<h4><?=formater($contrat->titre)?></h4> 
 				<a class="action" href="editer-contrat.php?contrat=<?=$contrat->id?>">&Eacute;diter</a> 
 				<a class="action" href="effacer-contrat.php?contrat=<?=$contrat->id?>">Effacer</a></h4>
 			</div>
