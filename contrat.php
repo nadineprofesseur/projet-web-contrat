@@ -1,6 +1,6 @@
 ﻿<?php
 //print_r($_GET);
-$id = $_GET['contrat']; // TODO php filter
+$id = filter_var($_GET['contrat'],FILTER_VALIDATE_INT); 
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -12,9 +12,9 @@ $base = 'contrat-a-tout';
 $dsn = 'mysql:dbname='.$base.';host=' . $hote;
 $basededonnees = new PDO($dsn, $usager, $motdepasse);
 
-
-$SQL_DETAIL_CONTRAT = "SELECT * FROM contrat WHERE id = " . $id; // todo bind param
+$SQL_DETAIL_CONTRAT = "SELECT * FROM contrat WHERE id = :id"; 
 $demandeContrat = $basededonnees->prepare($SQL_DETAIL_CONTRAT);
+$demandeContrat->bindParam(":id", $id, PDO::PARAM_STR);
 $demandeContrat->execute();
 $contrat = $demandeContrat->fetchAll(PDO::FETCH_OBJ)[0];
 //print_r($contrat);
