@@ -2,16 +2,7 @@
 //print_r($_GET);
 $id=filter_var($_GET['contrat'],FILTER_VALIDATE_INT);
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-$usager = 'root';
-$motdepasse = '';
-$hote = 'localhost';
-$base = 'contrat-a-tout';
-$dsn = 'mysql:dbname='.$base.';host=' . $hote;
-$basededonnees = new PDO($dsn, $usager, $motdepasse);
-
+include "connexion.php";
 
 $SQL_DETAIL_CONTRAT = "SELECT * FROM contrat WHERE id = :id"; // todo bind param
 $demandeContrat = $basededonnees->prepare($SQL_DETAIL_CONTRAT);
@@ -19,14 +10,6 @@ $demandeContrat->bindParam(':id', $id, PDO::PARAM_INT);
 $demandeContrat->execute();
 $contrat = $demandeContrat->fetchAll(PDO::FETCH_OBJ)[0];
 //print_r($contrat);
-
-function formater($texte)
-{
-	$texte = html_entity_decode($texte,ENT_COMPAT,'UTF-8');
-	$texte = htmlentities($texte,ENT_COMPAT,'ISO-8859-1');
-	return $texte;
-
-}
 
 ?>
 <!doctype html>

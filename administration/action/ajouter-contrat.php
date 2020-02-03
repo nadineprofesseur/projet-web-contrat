@@ -12,15 +12,7 @@
 	);
 	$contrat = filter_input_array(INPUT_POST, $filtresContrat);
 		
-	error_reporting(E_ALL);
-	ini_set('display_errors', 1);
-
-	$usager = 'root';
-	$motdepasse = '';
-	$hote = 'localhost';
-	$base = 'contrat-a-tout';
-	$dsn = 'mysql:dbname='.$base.';host=' . $hote;
-	$basededonnees = new PDO($dsn, $usager, $motdepasse);
+	include "../connexion.php";
 
 	$SQL_AJOUTER_CONTRAT = "INSERT into contrat(titre, client, description, technologie, debut) VALUES(:titre, :client, :description, :technologie, :debut)";
 	//echo $SQL_AJOUTER_CONTRAT;

@@ -25,15 +25,7 @@
 	
 	$id=filter_var($_GET['contrat'],FILTER_VALIDATE_INT);
 	
-	error_reporting(E_ALL);
-	ini_set('display_errors', 1);
-
-	$usager = 'root';
-	$motdepasse = '';
-	$hote = 'localhost';
-	$base = 'contrat-a-tout';
-	$dsn = 'mysql:dbname='.$base.';host=' . $hote;
-	$basededonnees = new PDO($dsn, $usager, $motdepasse);
+	include "../connexion.php";
 
 	$SQL_EDITER_CONTRAT = "UPDATE contrat SET titre = :titre, client = :client, client=:description, technologie=:technologie, debut=:debut WHERE id = :id";
 	echo $SQL_EDITER_CONTRAT;
