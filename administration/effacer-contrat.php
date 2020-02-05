@@ -2,15 +2,9 @@
 //print_r($_GET);
 $id=filter_var($_GET['contrat'],FILTER_VALIDATE_INT);
 
-include "connexion.php";
-
-$SQL_DETAIL_CONTRAT = "SELECT titre, id FROM contrat WHERE id = :id"; // todo bind param
-$demandeContrat = $basededonnees->prepare($SQL_DETAIL_CONTRAT);
-$demandeContrat->bindParam(':id', $id, PDO::PARAM_INT);
-$demandeContrat->execute();
-$contrat = $demandeContrat->fetchAll(PDO::FETCH_OBJ)[0];
+include_once "accesseur/ContratDAO.php";
+$contrat = ContratDAO::detaillerContrat($id);
 //print_r($contrat);
-
 
 ?>
 <!doctype html>
@@ -30,9 +24,9 @@ $contrat = $demandeContrat->fetchAll(PDO::FETCH_OBJ)[0];
 	<section id="contenu">
 		<header><h2>Voulez-vous vraiment effacer le contrat <?=formater($contrat->titre)?> ?</h2></header>
 		
-		<form action="action/effacer-contrat.php?contrat=<?=formater($contrat->id)?>" method="post">
+		<form action="contrats.php?contrat=<?=formater($contrat->id)?>" method="post">
 			
-			<input type="submit" name="oui" value="Oui">
+			<input type="submit" name="oui" name="action-effacer" value="Oui">
 			<input type="submit" name="non" value="Non">
 			
 		</form>

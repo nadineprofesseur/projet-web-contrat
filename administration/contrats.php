@@ -1,7 +1,8 @@
 ﻿<?php
-	include "accesseur/ContratDAO.php";
-	$contrats = ContratDAO::listerContrats();
+	include_once "accesseur/ContratDAO.php";
 	//print_r($contrats);
+	include "action/gerer-contrat.php";
+	$contrats = ContratDAO::listerContrats();
 ?>
 <!doctype html>
 <html lang="fr">

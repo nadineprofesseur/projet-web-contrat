@@ -1,5 +1,5 @@
 <?php
-	print_r($_POST);
+	//print_r($_POST);
 	
 	$filtresContrat = 
 	array(
@@ -12,6 +12,5 @@
 	);
 	$contrat = filter_input_array(INPUT_POST, $filtresContrat);
 
-	include "../accesseur/ContratDAO.php";
+	//include_once "../accesseur/ContratDAO.php";
 	ContratDAO::ajouterContrat($contrat);
-?>

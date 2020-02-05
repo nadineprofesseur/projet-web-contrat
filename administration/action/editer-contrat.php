@@ -15,7 +15,6 @@
 	$id=filter_var($_GET['contrat'],FILTER_VALIDATE_INT);
 	$contrat['id'] = $id;
 
-	include "../accesseur/ContratDAO.php";
+	//include_once "../accesseur/ContratDAO.php";
 	ContratDAO::editerContrat($contrat);
 	
-?>

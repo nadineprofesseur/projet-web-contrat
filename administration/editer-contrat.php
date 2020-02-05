@@ -23,8 +23,8 @@ $contrat = ContratDAO::detaillerContrat($id);
 	<section id="contenu">
 		<header><h2>&Eacute;diter le contrat <?=formater($contrat->titre)?></h2></header>
 		
-		<form action="action/editer-contrat.php?contrat=<?=formater($contrat->id)?>" method="post">
-		
+		<form action="contrats.php?contrat=<?=formater($contrat->id)?>" method="post">
+				
 			<div class="champs">
 				<label for="titre">Titre</label>
 				<input type="text" name="titre" id="titre" value="<?=formater($contrat->titre)?>"/>			
@@ -50,7 +50,7 @@ $contrat = ContratDAO::detaillerContrat($id);
 				<input type="text" name="debut" id="debut" value="<?=formater($contrat->debut)?>"/>			
 			</div>
 			
-			<input type="submit" value="Enregistrer">
+			<input type="submit" name="action-editer" value="Enregistrer">
 		</form>
 	
 	</section>
