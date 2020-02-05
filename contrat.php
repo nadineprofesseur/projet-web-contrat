@@ -1,13 +1,9 @@
 ﻿<?php
-include "connexion.php";
 //print_r($_GET);
 $id = filter_var($_GET['contrat'],FILTER_VALIDATE_INT); 
 
-$SQL_DETAIL_CONTRAT = "SELECT * FROM contrat WHERE id = :id"; 
-$demandeContrat = $basededonnees->prepare($SQL_DETAIL_CONTRAT);
-$demandeContrat->bindParam(":id", $id, PDO::PARAM_STR);
-$demandeContrat->execute();
-$contrat = $demandeContrat->fetchAll(PDO::FETCH_OBJ)[0];
+include "accesseur/ContratDAO.php";
+$contrat = ContratDAO::detaillerContrat($id);
 //print_r($contrat);
 
 ?>
