@@ -41,6 +41,25 @@
 				$demandeAjoutContrat->execute();			
 		}
 		
+		public static function editerContrat($contrat)
+		{
+			print_r($contrat);
+			include "../connexion.php";
+
+			$SQL_EDITER_CONTRAT = "UPDATE contrat SET titre = :titre, client = :client, client=:description, technologie=:technologie, debut=:debut WHERE id = :id";
+			echo $SQL_EDITER_CONTRAT;
+			$demandeEditionContrat = $basededonnees->prepare($SQL_EDITER_CONTRAT);
+			$demandeEditionContrat->bindParam(':titre',$contrat['titre'], PDO::PARAM_STR);
+			$demandeEditionContrat->bindParam(':client',$contrat['client'], PDO::PARAM_STR);
+			$demandeEditionContrat->bindParam(':description',$contrat['description'], PDO::PARAM_STR);
+			$demandeEditionContrat->bindParam(':technologie',$contrat['technologie'], PDO::PARAM_STR);
+			$demandeEditionContrat->bindParam(':debut',$contrat['debut'], PDO::PARAM_STR);
+			$demandeEditionContrat->bindParam(':id',$contrat['id'], PDO::PARAM_STR);
+			
+			$demandeEditionContrat->execute();
+			//print_r($demandeEditionContrat->errorInfo());
+		}
+		
 		
 	}
 

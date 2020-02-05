@@ -1,4 +1,6 @@
 <?php
+
+
 class BaseDeDonnees
 {
 	public static $connection;
@@ -16,7 +18,7 @@ class BaseDeDonnees
 }
 
 	$configuration = new stdClass();
-	$configuration->basededonnees = "delicesduweb";
+	$configuration->basededonnees = "contrat-a-tout";
 	$configuration->hote = "localhost";
 	$configuration->usager = "root";
 	$configuration->motdepasse = "";

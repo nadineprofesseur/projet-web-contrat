@@ -8,6 +8,7 @@ $hote = 'localhost';
 $base = 'contrat-a-tout';
 $dsn = 'mysql:dbname='.$base.';host=' . $hote;
 $basededonnees = new PDO($dsn, $usager, $motdepasse);
+$basededonnees->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 function formater($texte)
 {
