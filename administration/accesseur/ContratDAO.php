@@ -60,6 +60,17 @@
 			//print_r($demandeEditionContrat->errorInfo());
 		}
 		
+		public static function effacerContrat($id)
+		{
+			include "../connexion.php";
+
+			$SQL_EFFACER_CONTRAT = "DELETE FROM contrat WHERE id = :id";
+			echo $SQL_EFFACER_CONTRAT;
+			$demandeEffacementContrat = $basededonnees->prepare($SQL_EFFACER_CONTRAT);
+			$demandeEffacementContrat->bindParam(':id', $id, PDO::PARAM_INT);
+			$demandeEffacementContrat->execute();
+		}
+		
 		
 	}
 
