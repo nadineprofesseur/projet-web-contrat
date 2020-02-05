@@ -26,6 +26,21 @@
 			return $contrat;
 		}
 		
+		public static function ajouterContrat($contrat)
+		{
+				include "../connexion.php";
+
+				$SQL_AJOUTER_CONTRAT = "INSERT into contrat(titre, client, description, technologie, debut) VALUES(:titre, :client, :description, :technologie, :debut)";
+				//echo $SQL_AJOUTER_CONTRAT;
+				$demandeAjoutContrat = $basededonnees->prepare($SQL_AJOUTER_CONTRAT);
+				$demandeAjoutContrat->bindParam(':titre',$contrat['titre'], PDO::PARAM_STR);
+				$demandeAjoutContrat->bindParam(':client',$contrat['client'], PDO::PARAM_STR);
+				$demandeAjoutContrat->bindParam(':description',$contrat['description'], PDO::PARAM_STR);
+				$demandeAjoutContrat->bindParam(':technologie',$contrat['technologie'], PDO::PARAM_STR);
+				$demandeAjoutContrat->bindParam(':debut',$contrat['debut'], PDO::PARAM_STR);
+				$demandeAjoutContrat->execute();			
+		}
+		
 		
 	}
 
