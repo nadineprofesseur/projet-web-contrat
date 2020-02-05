@@ -8,10 +8,23 @@ class Contrat
 	protected $technologie;
 	protected $debut;
 	
+	public function __construct($tableau)
+	{
+		$this->id = $tableau['id'];
+		$this->titre = $tableau['titre'];
+		$this->client = $tableau['client'];
+		$this->description = $tableau['description'];
+		$this->technologie = $tableau['technologie'];
+		$this->debut = $tableau['debut'];
+	}
+	
 	public function __set($propriete, $valeur)
 	{
 		switch($propriete)
 		{
+			case 'id':
+				$this->id = $valeur;
+			break;
 			case 'titre':
 				$this->titre = $valeur;
 			break;
@@ -36,7 +49,7 @@ class Contrat
 		//return $$variable;
 		$self = get_object_vars($this); // externaliser pour optimiser
 		//print_r($self);
-		return $self['titre'];
+		return $self[$propriete];
 	}	
 }
 //$contrat = new Contrat();

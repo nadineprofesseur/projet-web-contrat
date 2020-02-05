@@ -1,5 +1,6 @@
 <?php 
 
+	include "modele/Contrat.php";
 	class ContratDAO
 	{
 		
@@ -24,7 +25,9 @@
 			$SQL_LISTE_CONTRATS = "SELECT * FROM contrat";
 			$demandeContrats = ContratDAO::$basededonnees->prepare($SQL_LISTE_CONTRATS);
 			$demandeContrats->execute();
-			$contrats = $demandeContrats->fetchAll(PDO::FETCH_OBJ);
+			//$contrats = $demandeContrats->fetchAll(PDO::FETCH_OBJ);
+			$contratsTableau = $demandeContrats->fetchAll(PDO::FETCH_ASSOC);
+			foreach($contratsTableau as $contratTableau) $contrats[] = new Contrat($contratTableau);
 			return $contrats;
 		}
 		
@@ -36,8 +39,9 @@
 			$demandeContrat = ContratDAO::$basededonnees->prepare($SQL_DETAIL_CONTRAT);
 			$demandeContrat->bindParam(':id', $id, PDO::PARAM_INT);
 			$demandeContrat->execute();
-			$contrat = $demandeContrat->fetchAll(PDO::FETCH_OBJ)[0];
-			return $contrat;
+			//$contrat = $demandeContrat->fetchAll(PDO::FETCH_OBJ)[0];
+			$contrat = $demandeContrat->fetch(PDO::FETCH_ASSOC);
+			return new Contrat($contrat);
 		}
 	
 		
