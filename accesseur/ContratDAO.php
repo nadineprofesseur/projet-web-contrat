@@ -1,6 +1,6 @@
 <?php 
 
-	include "modele/Contrat.php";
+	include_once "modele/Contrat.php";
 	class ContratDAO
 	{
 		

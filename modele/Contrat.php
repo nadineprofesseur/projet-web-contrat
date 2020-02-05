@@ -2,6 +2,16 @@
 
 class Contrat
 {
+	public static $filtres = 
+		array(
+			'id' => FILTER_VALIDATE_INT,
+			'titre' => FILTER_SANITIZE_ENCODED,
+			'client' => FILTER_SANITIZE_ENCODED,
+			'description' => FILTER_SANITIZE_ENCODED,
+			'technologie' => FILTER_SANITIZE_ENCODED,
+			'debut' => FILTER_SANITIZE_ENCODED
+		);
+		
 	protected $titre;
 	protected $client;
 	protected $description;
@@ -10,6 +20,8 @@ class Contrat
 	
 	public function __construct($tableau)
 	{
+		$tableau = filter_var_array($tableau, Contrat::$filtres);
+
 		$this->id = $tableau['id'];
 		$this->titre = $tableau['titre'];
 		$this->client = $tableau['client'];

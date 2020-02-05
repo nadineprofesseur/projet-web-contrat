@@ -1,6 +1,7 @@
 <?php
+include_once "../modele/Contrat.php";
 //print_r($_GET);
-$id=filter_var($_GET['contrat'],FILTER_VALIDATE_INT);
+$id=filter_var($_GET['contrat'],Contrat::$filtres['id']);
 
 include "accesseur/ContratDAO.php";
 $contrat = ContratDAO::detaillerContrat($id);

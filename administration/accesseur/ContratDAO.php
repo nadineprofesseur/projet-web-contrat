@@ -1,5 +1,5 @@
 <?php 
-	include "../modele/Contrat.php"; // autoload permis
+	include_once "../modele/Contrat.php"; // autoload permis
 
 	class ContratDAO
 	{
