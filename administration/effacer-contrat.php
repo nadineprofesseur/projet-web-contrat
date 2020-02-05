@@ -24,10 +24,11 @@ $contrat = ContratDAO::detaillerContrat($id);
 	<section id="contenu">
 		<header><h2>Voulez-vous vraiment effacer le contrat <?=formater($contrat->titre)?> ?</h2></header>
 		
-		<form action="contrats.php?contrat=<?=formater($contrat->id)?>" method="post">
+		<form action="contrats.php" method="post">
 			
-			<input type="submit" name="oui" name="action-effacer" value="Oui">
-			<input type="submit" name="non" value="Non">
+			<input type="hidden" name="contrat" value="<?=formater($contrat->id)?>"/>
+			<input type="submit" name="action-effacer" value="Oui">
+			<input type="submit" value="Non">
 			
 		</form>
 	

@@ -57,7 +57,7 @@
 			ContratDAO::initialiser();
 
 			$SQL_EDITER_CONTRAT = "UPDATE contrat SET titre = :titre, client = :client, client=:description, technologie=:technologie, debut=:debut WHERE id = :id";
-			echo $SQL_EDITER_CONTRAT;
+			//echo $SQL_EDITER_CONTRAT;
 			$demandeEditionContrat = ContratDAO::$basededonnees->prepare($SQL_EDITER_CONTRAT);
 			$demandeEditionContrat->bindParam(':titre',$contrat['titre'], PDO::PARAM_STR);
 			$demandeEditionContrat->bindParam(':client',$contrat['client'], PDO::PARAM_STR);
@@ -75,7 +75,7 @@
 			ContratDAO::initialiser();
 
 			$SQL_EFFACER_CONTRAT = "DELETE FROM contrat WHERE id = :id";
-			echo $SQL_EFFACER_CONTRAT;
+			//echo $SQL_EFFACER_CONTRAT;
 			$demandeEffacementContrat = ContratDAO::$basededonnees->prepare($SQL_EFFACER_CONTRAT);
 			$demandeEffacementContrat->bindParam(':id', $id, PDO::PARAM_INT);
 			$demandeEffacementContrat->execute();

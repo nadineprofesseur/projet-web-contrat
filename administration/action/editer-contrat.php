@@ -12,9 +12,6 @@
 	);
 	$contrat = filter_input_array(INPUT_POST, $filtresContrat);
 	
-	$id=filter_var($_GET['contrat'],FILTER_VALIDATE_INT);
-	$contrat['id'] = $id;
-
 	//include_once "../accesseur/ContratDAO.php";
 	ContratDAO::editerContrat($contrat);
 	

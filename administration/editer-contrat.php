@@ -23,7 +23,8 @@ $contrat = ContratDAO::detaillerContrat($id);
 	<section id="contenu">
 		<header><h2>&Eacute;diter le contrat <?=formater($contrat->titre)?></h2></header>
 		
-		<form action="contrats.php?contrat=<?=formater($contrat->id)?>" method="post">
+		<form action="contrats.php" method="post">
+			<input type="hidden" name="id" value="<?=formater($contrat->id)?>"/>
 				
 			<div class="champs">
 				<label for="titre">Titre</label>
