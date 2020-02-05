@@ -11,6 +11,7 @@
 		'debut' => FILTER_SANITIZE_ENCODED
 	);
 	$contrat = filter_input_array(INPUT_POST, $filtresContrat);
+	$contrat = new Contrat($contrat);
 
 	//include_once "../accesseur/ContratDAO.php";
 	ContratDAO::ajouterContrat($contrat);
