@@ -12,6 +12,24 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="contrats.css">	
 	<style>
+		*
+		{
+			font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+		}
+		a.action
+		{
+			background-color:white;
+			border-radius:1em;
+			padding:0.5em;
+			text-decoration:none;
+			color:#333333;
+			font-weight:bold;
+			font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+		}
+		#liste-contrats
+		{
+			margin-top:1em;
+		}
 	</style>
 </head>
 <body>
@@ -30,7 +48,7 @@
 		<header><h2>Contrats offerts</h2></header>
 	
 		<div>
-			<a href="ajouter-contrat.html">Ajouter un contrat</a>
+			<a href="ajouter-contrat.html" class="action">Ajouter un contrat</a>
 		</div>
 
 		<div id="liste-contrats">
