@@ -14,7 +14,17 @@
 			return $contrats;
 		}
 		
-		
+		public static function detaillerContrat($id)
+		{
+			include "connexion.php";
+
+			$SQL_DETAIL_CONTRAT = "SELECT * FROM contrat WHERE id = :id"; 
+			$demandeContrat = $basededonnees->prepare($SQL_DETAIL_CONTRAT);
+			$demandeContrat->bindParam(':id', $id, PDO::PARAM_INT);
+			$demandeContrat->execute();
+			$contrat = $demandeContrat->fetchAll(PDO::FETCH_OBJ)[0];
+			return $contrat;
+		}
 		
 		
 	}
