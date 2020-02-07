@@ -2,8 +2,8 @@
 	include_once "../modele/Contrat.php"; // autoload permis
 	include_once "accesseur/ContratSQL.php";
 
-	class ContratDAO implements ContratSQL
-	{		
+	class Accesseur
+	{
 		public static $basededonnees = null;
 
 		public static function initialiser()
@@ -16,7 +16,10 @@
 			ContratDAO::$basededonnees = new PDO($dsn, $usager, $motdepasse);
 			ContratDAO::$basededonnees->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
-
+	}	
+	
+	class ContratDAO extends Accesseur implements ContratSQL
+	{		
 		public static function listerContrats()
 		{
 			ContratDAO::initialiser();
