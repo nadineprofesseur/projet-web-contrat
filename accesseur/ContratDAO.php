@@ -1,11 +1,10 @@
 <?php 
 
 	include_once "modele/Contrat.php";
-	class ContratDAO
-	{
-		public static $SQL_LISTE_CONTRATS = "SELECT * FROM contrat";
-		public static $SQL_DETAIL_CONTRAT = "SELECT * FROM contrat WHERE id = :id"; 
-		
+	include_once "accesseur/ContratSQL.php";
+	
+	class ContratDAO implements ContratSQL
+	{		
 		public static $basededonnees = null;
 
 		public static function initialiser()
@@ -24,7 +23,7 @@
 			
 			ContratDAO::initialiser();
 
-			$demandeContrats = ContratDAO::$basededonnees->prepare(ContratDAO::$SQL_LISTE_CONTRATS);
+			$demandeContrats = ContratDAO::$basededonnees->prepare(ContratDAO::SQL_LISTE_CONTRATS);
 			$demandeContrats->execute();
 			//$contrats = $demandeContrats->fetchAll(PDO::FETCH_OBJ);
 			$contratsTableau = $demandeContrats->fetchAll(PDO::FETCH_ASSOC);
@@ -36,7 +35,7 @@
 		{
 			ContratDAO::initialiser();
 
-			$demandeContrat = ContratDAO::$basededonnees->prepare(ContratDAO::$SQL_DETAIL_CONTRAT);
+			$demandeContrat = ContratDAO::$basededonnees->prepare(ContratDAO::SQL_DETAIL_CONTRAT);
 			$demandeContrat->bindParam(':id', $id, PDO::PARAM_INT);
 			$demandeContrat->execute();
 			//$contrat = $demandeContrat->fetchAll(PDO::FETCH_OBJ)[0];
